@@ -1,19 +1,11 @@
-const http = require('http');
-const fs = require('fs')
+const express = require('express')
+const app = express()
+const port = 3000
 
-const requestListener = function (req, res) {
-  res.setHeader("Content-Type", "text/html;charset=utf8");
-  res.writeHead(200);
-  res.end('你好，世界！');
-}
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
 
-const server = http.createServer(requestListener);
-
-const socket = process.env.SOCKET
-if (!socket) {
-  console.log("未指定 socket")
-  process.exit(1)
-}
-server.listen(socket, () => {
-  console.log('I am listening on ' + socket)
-});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
