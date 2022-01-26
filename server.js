@@ -4,7 +4,7 @@ const socket = process.env.SOCKET
 const port = socket
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('你好啊，哈哈')
 })
 
 app.listen(port, () => {
